@@ -1,0 +1,44 @@
+{
+  "name": "vue-plugin-webextension-i18n",
+  "version": "0.1.0",
+  "description": "Vue.js plugin that wraps the extension internationalization api. Supports WebExtension and native Chrome extension.",
+  "keywords": [
+    "vue",
+    "plugin",
+    "i18n",
+    "internationalization",
+    "webextension",
+    "extension",
+    "chrome",
+    "firefox"
+  ],
+  "author": "CRIMX <straybugs@gmail.com>",
+  "license": "MIT",
+  "repository": "crimx/vue-plugin-webextension-i18n",
+  "bugs": {
+    "url": "https://github.com/crimx/vue-plugin-webextension-i18n/issues"
+  },
+  "homepage": "https://github.com/crimx/vue-plugin-webextension-i18n",
+  "peerDependencies": {
+    "vue": "*"
+  },
+  "devDependencies": {
+    "chai": "^4.1.2",
+    "eslint": "^4.15.0",
+    "eslint-config-standard": "^11.0.0-beta.0",
+    "eslint-plugin-import": "^2.8.0",
+    "eslint-plugin-node": "^5.2.1",
+    "eslint-plugin-standard": "^3.0.1",
+    "jsdom": "^11.5.1",
+    "mocha": "^4.1.0",
+    "sinon-chai": "^2.14.0",
+    "sinon-chrome": "^2.2.1",
+    "vue": "^2.5.13"
+  },
+  "engines": {
+    "node": ">=7.0.0"
+  },
+  "scripts": {
+    "test": "mocha && eslint *.js"
+  }
+}
