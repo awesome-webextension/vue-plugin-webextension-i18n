@@ -1,7 +1,12 @@
 module.exports = {
   install (Vue) {
-    const browser = window.browser || window.chrome
-    if (!browser) { throw new Error('"browser" or "chrome" not found.') }
+    const browserObject = null
+    if (typeof browser !== "undefined") {
+      browserObject = browser 
+    } else if (typeof chrome !== "undefined") {
+      browserObject = chrome
+    }
+    if (!browserObject) { throw new Error('"browser" or "chrome" not found.') }
     /**
      * @param {string} messageName - The name of the message, as specified in the messages.json file.
      * @param {string|string[]} [substitutions] - A single substitution string, or an array of substitution strings.
@@ -10,7 +15,7 @@ module.exports = {
      * @todo Reactive locales. No api supports switching locales for now.
      */
     Vue.prototype.$i18n = function i18n () {
-      return browser.i18n.getMessage.apply(void 0, arguments)
+      return browserObject.i18n.getMessage.apply(void 0, arguments)
     }
   }
 }
