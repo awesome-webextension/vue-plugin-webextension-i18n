@@ -1,6 +1,6 @@
 {
   "name": "vue-plugin-webextension-i18n",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Vue.js plugin that wraps the extension internationalization api. Supports WebExtension and native Chrome extension.",
   "keywords": [
     "vue",
