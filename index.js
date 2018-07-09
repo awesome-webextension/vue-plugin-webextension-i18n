@@ -1,6 +1,6 @@
 module.exports = {
   install (Vue) {
-    const browserObject = null
+    let browserObject = null
     if (typeof browser !== "undefined") {
       browserObject = browser 
     } else if (typeof chrome !== "undefined") {
