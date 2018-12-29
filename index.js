@@ -14,8 +14,6 @@ module.exports = {
      * @see {@link https://developer.mozilla.org/en-US/Add-ons/WebExtensions/API/i18n/getMessage}
      * @todo Reactive locales. No api supports switching locales for now.
      */
-    Vue.prototype.$i18n = function i18n () {
-      return browserObject.i18n.getMessage.apply(void 0, arguments)
-    }
+    Vue.prototype.$i18n = browserObject.i18n.getMessage
   }
 }
