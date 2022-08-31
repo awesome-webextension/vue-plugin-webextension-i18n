@@ -4,11 +4,7 @@ Vue.js plugin that wraps the extension internationalization api. Supports [WebEx
 # Install
 
 ```bash
-yarn add vue-plugin-webextension-i18n
-
-or
-
-npm install --save-dev vue-plugin-webextension-i18n
+npm add vue-plugin-webextension-i18n@0.1.2
 ```
 
 # Usage
