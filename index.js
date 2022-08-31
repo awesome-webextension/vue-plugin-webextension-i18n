@@ -1,19 +1,25 @@
 module.exports = {
-  install (Vue) {
+  install (app) {
     let browserObject = null
-    if (typeof browser !== "undefined") {
-      browserObject = browser 
-    } else if (typeof chrome !== "undefined") {
-      browserObject = chrome
+    try {
+      if (typeof browser.runtime.getURL === 'function') {
+        browserObject = browser
+      }
+    } catch (e) {
+      try {
+        if (typeof chrome.runtime.getURL === 'function') {
+          browserObject = chrome
+        }
+      } catch (e) {}
     }
     if (!browserObject) { throw new Error('"browser" or "chrome" not found.') }
-    /**
-     * @param {string} messageName - The name of the message, as specified in the messages.json file.
-     * @param {string|string[]} [substitutions] - A single substitution string, or an array of substitution strings.
-     * @returns {string} Message localized for current locale.
-     * @see {@link https://developer.mozilla.org/en-US/Add-ons/WebExtensions/API/i18n/getMessage}
-     * @todo Reactive locales. No api supports switching locales for now.
-     */
-    Vue.prototype.$i18n = browserObject.i18n.getMessage
+    const getMessage = browserObject.i18n.getMessage.bind(browserObject.i18n)
+    if (app.prototype) {
+      // vue2
+      app.prototype.$i18n = getMessage
+    } else {
+      // vue3
+      app.config.globalProperties.$i18n = getMessage
+    }
   }
 }
